@@ -1,0 +1,1 @@
+jenkins ansible_host="34.207.159.79" ansible_user=ubuntu ansible_ssh_private_key_file=/home/abunemr/sprint-project.pem
