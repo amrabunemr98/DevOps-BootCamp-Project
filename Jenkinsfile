@@ -42,4 +42,3 @@ pipeline {
 
 
 }
-/* add webhook in configure , aws cred. github cred 
