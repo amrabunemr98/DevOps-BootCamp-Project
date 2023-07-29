@@ -4,7 +4,8 @@ pipeline {
         docker_file_app = 'MySQL-and-Python/FlaskApp/Dockerfile'
         docker_file_db = 'MySQL-and-Python/MySQL_Queries/Dockerfile'
         ecr_repository = '817775426354.dkr.ecr.us-east-1.amazonaws.com/sprints-ecr-repo'
-        imageTag = "build-${BUILD_NUMBER}"
+        imageTagApp = "build-${BUILD_NUMBER}-app"
+        imageTagDb = "build-${BUILD_NUMBER}-db"
         imageName = "${ecr_repository}:${imageTag}"
     }
     stages {
@@ -13,7 +14,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'aws_cred', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]){
                     sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ecr_repository"
                     sh "docker build -t ${imageName} -f ${docker_file_app} ."
-                    sh "docker tag ${imageName} ${ecr_repository}:${imageTag}"
+                    sh "docker tag ${imageName} ${ecr_repository}:${imageTagApp}"
                     sh "docker push ${ecr_repository}:${imageTag}"
                     sh "docker rmi ${ecr_repository}:${imageTag}"
                 }
@@ -25,7 +26,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'aws_cred', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]){
                     sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ecr_repository"
                     sh "docker build -t ${imageName} -f ${docker_file_db} ."
-                    sh "docker tag ${imageName} ${ecr_repository}:${imageTag}"
+                    sh "docker tag ${imageName} ${ecr_repository}:${imageTagDb}"
                     sh "docker push ${ecr_repository}:${imageTag}"
                     sh "docker rmi ${ecr_repository}:${imageTag}"
                     echo "hi"
