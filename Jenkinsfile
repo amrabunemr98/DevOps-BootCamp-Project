@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        docker_file_app = 'MySQL-and-Python/FlaskApp/'
-        docker_file_db = 'MySQL-and-Python/MySQL_Queries/'
+        docker_file_app = 'MySQL-and-Python/FlaskApp/Dockerfile'
+        docker_file_db = 'MySQL-and-Python/MySQL_Queries/Dockerfile'
         ecr_repository = '817775426354.dkr.ecr.us-east-1.amazonaws.com/sprints-ecr-repo'
         imageTag = "build-${env.BUILD_NUMBER}"
         imageName = "${ecr_repository}:${imageTag}"
