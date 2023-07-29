@@ -28,7 +28,7 @@ resource "aws_instance" "ec2" {
   iam_instance_profile = aws_iam_instance_profile.worker.name
 
   tags = {
-    Name = "test"
+    Name = "Jenkins-Instance"
   }
 }
 
