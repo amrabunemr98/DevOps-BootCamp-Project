@@ -28,6 +28,7 @@ pipeline {
                     sh "docker tag ${imageName} ${ecr_repository}:${imageTag}"
                     sh "docker push ${ecr_repository}:${imageTag}"
                     sh "docker rmi ${ecr_repository}:${imageTag}"
+                    echo "hi"
                 }
             }
         }
