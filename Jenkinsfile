@@ -13,7 +13,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'aws_cred', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     dir("DevOps-BootCamp-Project/Jenkinsfile/MySQL-and-Python/FlaskApp"){
                         sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ecr_repository"
-                        sh "docker build -t ${imageName} -f ${docker_file_app}"
+                        sh "docker build -t ${imageName} -f Dockerfile ."
                         sh "docker tag ${imageName} ${ecr_repository}:${imageTag}"
                         sh "docker push ${ecr_repository}:${imageTag}"
                         sh "docker rmi ${ecr_repository}:${imageTag}"
@@ -26,7 +26,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'aws_cred', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     dir("DevOps-BootCamp-Project/Jenkinsfile/MySQL-and-Python/MySQL_Queries") {
                         sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ecr_repository"
-                        sh "docker build -t ${imageName} -f ${docker_file_db}"
+                        sh "docker build -t ${imageName} -f Dockerfile ."
                         sh "docker tag ${imageName} ${ecr_repository}:${imageTag}"
                         sh "docker push ${ecr_repository}:${imageTag}"
                         sh "docker rmi ${ecr_repository}:${imageTag}"
