@@ -63,7 +63,17 @@ pipeline {
                 sh "kubectl apply -f kubernets-files/Statefulset_db.yml"
                 }
              }
+    }
 }
+
+
+
+
+
+
+
+
+
 
 
 
