@@ -59,6 +59,9 @@ pipeline {
                     sh "sed -i \'s|image:.*|image: ${imageNameapp}|g\' Kubernets-files/Deployment_flaskapp.yml"
                     sh "sed -i \'s|image:.*|image: ${imageNameDB}|g\' Kubernets-files/Statefulset_db.yml"
                     sh "aws eks --region us-east-1 update-kubeconfig --name Sprints-EKS-Cluster"
+                    sh "kubectl apply -f serviceaccount.yml"
+                    sh "kubectl apply -f role.yml"
+                    sh "kubectl apply -f rolebinding.yml"
 
                     // Apply the Kubernetes YAML files
                     sh "kubectl apply -f Kubernets-files/ConfigMap.yml"
