@@ -60,8 +60,8 @@ pipeline {
                 sh "aws eks --region us-east-1 update-kubeconfig --name Sprints-EKS-Cluster"
 
                 // Apply the Kubernetes YAML files
-                sh "kubectl apply -f kubernets-files/Deployment_flaskapp.yml"
-                sh "kubectl apply -f kubernets-files/Statefulset_db.yml"
+                sh "kubectl apply -f Kubernets-files/Deployment_flaskapp.yml"
+                sh "kubectl apply -f Kubernets-files/Statefulset_db.yml"
                 }
              }
     }
