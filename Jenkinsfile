@@ -54,18 +54,20 @@ pipeline {
 
             stage('Apply Kubernetes files') {
             steps{
-                // Replace the placeholder with the actual Docker image in the Kubernetes YAML files
-                sh "sed -i \'s|image:.*|image: ${imageNameapp}|g\' Kubernets-files/Deployment_flaskapp.yml"
-                sh "sed -i \'s|image:.*|image: ${imageNameDB}|g\' Kubernets-files/Statefulset_db.yml"
-                sh "aws eks --region us-east-1 update-kubeconfig --name Sprints-EKS-Cluster"
+                withKubeConfig([credentialsId: 'eks-conf', serverUrl: 'https://EBF43CAC53CFBE2BEC05EBA12E5744EF.gr7.us-east-1.eks.amazonaws.com']) {
+                    // Replace the placeholder with the actual Docker image in the Kubernetes YAML files
+                    sh "sed -i \'s|image:.*|image: ${imageNameapp}|g\' Kubernets-files/Deployment_flaskapp.yml"
+                    sh "sed -i \'s|image:.*|image: ${imageNameDB}|g\' Kubernets-files/Statefulset_db.yml"
+                    sh "aws eks --region us-east-1 update-kubeconfig --name Sprints-EKS-Cluster"
 
-                // Apply the Kubernetes YAML files
-                //sh "kubectl apply -f Kubernets-files/ConfigMap.yml"
-                sh "kubectl apply -f Kubernets-files/Secrets.yml"
-                sh "kubectl apply -f Kubernets-files/Services.yml"
-                sh "kubectl apply -f Kubernets-files/Deployment_flaskapp.yml"
-                sh "kubectl apply -f Kubernets-files/Statefulset_db.yml"
-                sh "kubectl apply -f Kubernets-files/Ingress_NGINX_controller.yml"
+                    // Apply the Kubernetes YAML files
+                    //sh "kubectl apply -f Kubernets-files/ConfigMap.yml"
+                    sh "kubectl apply -f Kubernets-files/Secrets.yml"
+                    sh "kubectl apply -f Kubernets-files/Services.yml"
+                    sh "kubectl apply -f Kubernets-files/Deployment_flaskapp.yml"
+                    sh "kubectl apply -f Kubernets-files/Statefulset_db.yml"
+                    sh "kubectl apply -f Kubernets-files/Ingress_NGINX_controller.yml"
+                }
                 
                 }
              }
