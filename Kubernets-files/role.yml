@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: jenkins-role
+  namespace: default
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services", "configmaps", "secrets", "deployments", "statefulsets", "persistentvolumeclaims"]
+  verbs: ["get", "watch", "list", "create", "update", "delete"]
