@@ -55,8 +55,8 @@ pipeline {
             stage('Apply Kubernetes files') {
             steps{
                 // Replace the placeholder with the actual Docker image in the Kubernetes YAML files
-                sh "sed -i \'s|image:.*|image: ${imageNameapp}|g\' kubernets-files/Deployment_flaskapp.yml"
-                sh "sed -i \'s|image:.*|image: ${imageNameDB}|g\' kubernets-files/Statefulset_db.yml"
+                sh "sed -i \'s|image:.*|image: ${imageNameapp}|g\' Kubernets-files/Deployment_flaskapp.yml"
+                sh "sed -i \'s|image:.*|image: ${imageNameDB}|g\' Kubernets-files/Statefulset_db.yml"
 
                 // Apply the Kubernetes YAML files
                 sh "kubectl apply -f kubernets-files/Deployment_flaskapp.yml"
