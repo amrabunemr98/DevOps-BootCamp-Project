@@ -57,6 +57,7 @@ pipeline {
                 // Replace the placeholder with the actual Docker image in the Kubernetes YAML files
                 sh "sed -i \'s|image:.*|image: ${imageNameapp}|g\' Kubernets-files/Deployment_flaskapp.yml"
                 sh "sed -i \'s|image:.*|image: ${imageNameDB}|g\' Kubernets-files/Statefulset_db.yml"
+                sh "aws eks --region us-east-1 update-kubeconfig --name Sprints-EKS-Cluster"
 
                 // Apply the Kubernetes YAML files
                 sh "kubectl apply -f kubernets-files/Deployment_flaskapp.yml"
