@@ -38,9 +38,13 @@ spec:
     storage: 1Gi  
   accessModes:
     - ReadWriteOnce
-  awsElasticBlockStore:
-    volumeID: "vol-04d0d75871cbc1dbd"
-    fsType: ext4
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: mysql-storage
+  hostPath:
+     path: /var/lib/mysql
+  # awsElasticBlockStore:
+  #   volumeID: "vol-0bf634428885ce79d"
+  #   fsType: ext4
 
 ---
 apiVersion: v1
@@ -53,3 +57,4 @@ spec:
       storage: 1Gi
   accessModes:
     - ReadWriteOnce
+  storageClassName: mysql-storage
