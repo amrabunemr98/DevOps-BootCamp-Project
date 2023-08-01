@@ -22,7 +22,7 @@ spec:
             - name: data-volume
               mountPath: /var/lib/mysql
         - name: MYSQL_ROOT_PASSWORD
-          valueForm:
+          valueFrom:   
             secretKeyRef:
               name: app-secrets
               key: MYSQL_ROOT_PASSWORD
