@@ -57,6 +57,7 @@ pipeline {
             steps{
                withCredentials([file(credentialsId: "${KUBECONFIG_CREDENTIAL}", variable: 'KUBECONFIG')]) {
                     // Replace the placeholder with the actual Docker image in the Kubernetes YAML files
+                    env.KUBECONFIG = KUBECONFIG
                     sh "sed -i \'s|image:.*|image: ${imageNameapp}|g\' Kubernets-files/Deployment_flaskapp.yml"
                     sh "sed -i \'s|image:.*|image: ${imageNameDB}|g\' Kubernets-files/Statefulset_db.yml"
                     
