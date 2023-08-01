@@ -42,11 +42,11 @@ spec:
                 configMapKeyRef:
                   name: flask-app-config
                   key: MYSQL_DATABASE_USER
-            - name: MYSQL_DATABASE_USER
+            - name: MYSQL_DATABASE_DB
               valueForm:
                 configMapKeyRef:
                   name: flask-app-config
-                  key: MYSQL_DATABASE_USER
+                  key: MYSQL_DATABASE_DB
             - name: MYSQL_DATABASE_HOST
               valueFrom:
                 configMapKeyRef:
