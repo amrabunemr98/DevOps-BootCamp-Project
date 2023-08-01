@@ -18,13 +18,13 @@ spec:
           image: 817775426354.dkr.ecr.us-east-1.amazonaws.com/sprints-ecr-repo:build-${BUILD_NUMBER}-db
           ports:
             - containerPort: 3306
-          volumeMounts:         # to all pods see all data
-            - name: mysql-persistent-storage
+          volumeMounts:
+            - name: data-volume
               mountPath: /var/lib/mysql
           volumes:
-          - name: data-volume
-            PersistentVolumeClaim:
+            - name: data-volume
+              persistentVolumeClaim:
                 claimName: mypvc
-          - name: app-secret
-            secretName: app-secrets
-
+            - name: app-secret
+              secret:
+                secretName: app-secrets
