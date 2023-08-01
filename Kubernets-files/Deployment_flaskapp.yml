@@ -43,7 +43,7 @@ spec:
                   name: flask-app-config
                   key: MYSQL_DATABASE_USER
             - name: MYSQL_DATABASE_DB
-              valueForm:
+              valueFrom:
                 configMapKeyRef:
                   name: flask-app-config
                   key: MYSQL_DATABASE_DB
@@ -57,5 +57,3 @@ spec:
                 secretKeyRef:
                   name: app-secrets
                   key: MYSQL_DATABASE_PASSWORD
-                
-
