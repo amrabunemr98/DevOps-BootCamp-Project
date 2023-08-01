@@ -21,11 +21,12 @@ spec:
           volumeMounts:
             - name: data-volume
               mountPath: /var/lib/mysql
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:   
-            secretKeyRef:
-              name: app-secrets
-              key: MYSQL_ROOT_PASSWORD
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:   
+                secretKeyRef:
+                  name: app-secrets
+                  key: MYSQL_ROOT_PASSWORD
       volumes:
         - name: data-volume
           persistentVolumeClaim:
