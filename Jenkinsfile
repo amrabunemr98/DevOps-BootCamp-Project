@@ -66,7 +66,7 @@ pipeline {
                     // sh "kubectl apply -f Kubernets-files/rolebinding.yml"
 
                     // Apply the Kubernetes YAML files
-                    sh "sudo kubectl apply -f Kubernets-files/ConfigMap.yml"
+                    sh "kubectl apply -f Kubernets-files/ConfigMap.yml"
                     sh "kubectl apply -f Kubernets-files/Secrets.yml"
                     sh "kubectl apply -f Kubernets-files/Services.yml"
                     sh "kubectl apply -f Kubernets-files/Deployment_flaskapp.yml"
