@@ -21,10 +21,10 @@ spec:
           volumeMounts:
             - name: data-volume
               mountPath: /var/lib/mysql
-          volumes:
-            - name: data-volume
-              persistentVolumeClaim:
-                claimName: mypvc
-            - name: app-secret
-              secret:
-                secretName: app-secrets
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: mypvc
+        - name: app-secret
+          secret:
+            secretName: app-secrets
