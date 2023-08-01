@@ -21,7 +21,7 @@ services:
       # MySQL database name for the FlaskApp
       MYSQL_DATABASE_DB: BucketList
       # MySQL database password for the FlaskApp
-      MYSQL_DATABASE_PASSWORD: root
+      MYSQL_DATABASE_PASSWORD: cm9vdA==
       # MySQL database username for the FlaskApp
       MYSQL_DATABASE_USER: root
       # MySQL database host (linked to the 'db' service)
@@ -38,7 +38,8 @@ services:
     
     # Set environment variable for the MySQL root password
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: YW1y
+
 
       
     
