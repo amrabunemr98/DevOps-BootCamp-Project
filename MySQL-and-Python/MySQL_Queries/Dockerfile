@@ -6,4 +6,6 @@ FROM mysql:latest
 # that allows you to add SQL scripts that will be executed during container initialization.
 # These scripts are used to initialize the database with custom data.
 COPY . /app
+COPY . /docker-entrypoint-initdb.d
+
 
