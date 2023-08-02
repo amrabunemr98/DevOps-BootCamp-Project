@@ -1,6 +1,6 @@
 provider "aws" {
   region = "us-east-1" # Replace with your desired region
-  profile = "project"
+  profile = "Project"
 }
 
 data "aws_ami" "amazon_ec2" {
@@ -21,7 +21,7 @@ data "aws_ami" "amazon_ec2" {
 
 resource "aws_instance" "ec2" {
   ami           = data.aws_ami.amazon_ec2.image_id
-  instance_type = "t2.micro"
+  instance_type = "t3.xlarge"
   subnet_id = aws_subnet.public_subnet.id
   vpc_security_group_ids = [aws_security_group.sg.id]
   associate_public_ip_address = true
@@ -209,7 +209,7 @@ resource "aws_eks_node_group" "node-grp" {
   capacity_type   = "ON_DEMAND"
   disk_size       = "20"
   ami_type        = "AL2_x86_64"
-  instance_types  = ["t2.micro"]
+  instance_types  = ["t3.xlarge"]
 
   remote_access {
     ec2_ssh_key               = "sprint-project"
