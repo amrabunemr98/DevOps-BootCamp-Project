@@ -27,10 +27,6 @@ spec:
                 secretKeyRef:
                   name: app-secrets
                   key: MYSQL_ROOT_PASSWORD
-          # Add other environment variables if needed
-          command:
-            - "mysqld"
-            - "--socket=/var/lib/mysql/mysql.sock"  # Specify the socket path here
       volumes:
         - name: data-volume
           persistentVolumeClaim:
