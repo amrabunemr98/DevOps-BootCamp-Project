@@ -5,7 +5,7 @@ FROM mysql:latest
 # The /docker-entrypoint-initdb.d/ directory is a special directory in the MySQL image
 # that allows you to add SQL scripts that will be executed during container initialization.
 # These scripts are used to initialize the database with custom data.
-COPY . /app
-COPY . /docker-entrypoint-initdb.d
+#COPY . /app
+COPY MySQL-and-Python/MySQL_Queries /docker-entrypoint-initdb.d
 
 
