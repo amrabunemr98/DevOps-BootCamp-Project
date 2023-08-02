@@ -16,6 +16,7 @@ spec:
       containers:
         - name: mysql
           image: 817775426354.dkr.ecr.us-east-1.amazonaws.com/sprints-ecr-repo:build-${BUILD_NUMBER}-db
+          socket: /var/lib/mysql/mysqld.sock
           ports:
             - containerPort: 3306
           volumeMounts:
