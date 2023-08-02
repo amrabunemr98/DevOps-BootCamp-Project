@@ -1,4 +1,4 @@
-aws_access_key: "AKIA34ZZWXMZFFHXLGCT"
-aws_secret_key: "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"
+aws_access_key: "AKIA34ZZWXMZJ4NS7U34"
+aws_secret_key: "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"
 kubectl_version: "v1.27.4"
 aws_region: "us-east-1"
