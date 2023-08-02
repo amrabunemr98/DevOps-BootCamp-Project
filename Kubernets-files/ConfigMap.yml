@@ -5,4 +5,4 @@ metadata:
 data:
   MYSQL_DATABASE_DB: BucketList
   MYSQL_DATABASE_USER: root
-  MYSQL_DATABASE_HOST: db
+  MYSQL_DATABASE_HOST: mysql-service
