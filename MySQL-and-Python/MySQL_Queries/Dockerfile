@@ -1,5 +1,5 @@
 FROM mysql:latest
-
+ENV MYSQL_ROOT_PASSWORD=amr
 # Copy all the files from the current directory (where the Dockerfile is located)
 # to the /docker-entrypoint-initdb.d/ directory inside the container.
 # The /docker-entrypoint-initdb.d/ directory is a special directory in the MySQL image
