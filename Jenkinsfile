@@ -82,7 +82,7 @@ pipeline {
             steps {
                 script {
                     // Retrieve the DNS from Kubernetes Service using kubectl
-                    def dns = sh(script: 'kubectl get svc flask-app-ingress -o jsonpath="{.status.loadBalancer.ingress[0].hostname}"', returnStdout: true).trim()
+                    def dns = sh(script: 'kubectl get svc flask-app-service -o jsonpath="{.status.loadBalancer.ingress[0].hostname}"', returnStdout: true).trim()
 
                     // Display the URL to the website
                     def websiteUrl = "http://${dns}/"
