@@ -10,10 +10,15 @@ mysql = MySQL()
 
 # MySQL configurations
 
-app.config['MYSQL_DATABASE_USER'] = os.environ['MYSQL_DATABASE_USER']
-app.config['MYSQL_DATABASE_PASSWORD'] = os.environ['MYSQL_DATABASE_PASSWORD']
-app.config['MYSQL_DATABASE_DB'] = os.environ['MYSQL_DATABASE_DB']
-app.config['MYSQL_DATABASE_HOST'] = os.environ['MYSQL_DATABASE_HOST']
+# app.config['MYSQL_DATABASE_USER'] = os.environ['MYSQL_DATABASE_USER']
+# app.config['MYSQL_DATABASE_PASSWORD'] = os.environ['MYSQL_DATABASE_PASSWORD']
+# app.config['MYSQL_DATABASE_DB'] = os.environ['MYSQL_DATABASE_DB']
+# app.config['MYSQL_DATABASE_HOST'] = os.environ['MYSQL_DATABASE_HOST']
+# app.config['MYSQL_DATABASE_PORT'] = 3306 
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
+app.config['MYSQL_DATABASE_DB'] = 'BucketList'
+app.config['MYSQL_DATABASE_HOST'] = 'mysql-service'
 app.config['MYSQL_DATABASE_PORT'] = 3306 
 
 mysql.init_app(app)
