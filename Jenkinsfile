@@ -9,7 +9,6 @@ pipeline {
         imageNameapp = "${ecr_repository}:${imageTagApp}"
         imageTagDb = "build-${BUILD_NUMBER}-db"
         imageNameDB = "${ecr_repository}:${imageTagDb}"
-        KUBECONFIG_CREDENTIAL = 'kubeconfig_secret'
     }
     stages {
         stage('Build Docker image for app.py and push it to ECR') {
@@ -55,16 +54,12 @@ pipeline {
 
             stage('Apply Kubernetes files') {
             steps{
-               //withCredentials([file(credentialsId: "${KUBECONFIG_CREDENTIAL}", variable: 'KUBECONFIG')])
                 withCredentials([usernamePassword(credentialsId: 'aws_cred', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     // Replace the placeholder with the actual Docker image in the Kubernetes YAML files
                     sh "sed -i \'s|image:.*|image: ${imageNameapp}|g\' Kubernets-files/Deployment_flaskapp.yml"
                     sh "sed -i \'s|image:.*|image: ${imageNameDB}|g\' Kubernets-files/Statefulset_db.yml"
                     
                     sh "aws eks --region us-east-1 update-kubeconfig --name Sprints-EKS-Cluster"
-                    // sh "kubectl apply -f Kubernets-files/serviceaccount.yml"
-                    // sh "kubectl apply -f Kubernets-files/role.yml"
-                    // sh "kubectl apply -f Kubernets-files/rolebinding.yml"
 
                     // Apply the Kubernetes YAML files
                     sh "kubectl apply -f Kubernets-files/ConfigMap.yml"
