@@ -35,27 +35,48 @@ chmod 600 /home/ubuntu/.aws/credentials
 aws eks --region us-east-1 update-kubeconfig --name Sprints-EKS-Cluster
 ```
 ![WhatsApp Image 2023-08-06 at 2 06 27 AM](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/8d1dea34-857a-4541-8807-863a164241a3)
+
 5. Get Admin Password for Jenkins from output of running bash script:
 ![Screenshot from 2023-08-06 02-24-46](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/af17f296-3fe0-42ee-a096-71e094af0484)
+
 6. Access Jenkins Web Interface:
 ```
-public_ip_jenkins_instance:8080
+"public_ip_jenkins_instance":8080
 ```
 7. Configure Jenkins Credentials:
 - Add GitHub credentials to Jenkins for accessing your repository.
 - Add AWS credentials for interacting with AWS services.
 ![WhatsApp Image 2023-08-06 at 2 30 14 AM](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/fae8e3d0-dedc-4643-8f4a-e2f750b97a05)
+
 8. Set Up Pipeline and Webhook:
 - Configure a GitHub webhook to trigger the pipeline on repository pushes. 
 ![Screenshot from 2023-08-05 20-16-08](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/f6c393aa-ddf2-465a-a170-4ef360e835c5)
+------------------------------------
 ![Screenshot from 2023-08-05 20-11-08](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/2160f0fb-c18e-4938-bea9-72b5da11845b)
 - Create a pipeline in Jenkins using a Jenkinsfile.
 ![Screenshot from 2023-08-06 02-37-38](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/84548a7d-f090-48d8-8eb4-f540cad11a60)
 9. Access Web Application:
 - After the pipeline completes, find the DNS of the web server from the pipeline outputs.
 ![Screenshot from 2023-08-05 23-10-53](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/1b183134-ff5f-414b-89cd-d94865fa4e98)
+--------------------------------------------
 ![Screenshot from 2023-08-05 22-27-03](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/51b8687e-d742-4c1b-96d7-d5873e44f494)
+-------------------------------------------------------
 ![Screenshot from 2023-08-05 22-43-23](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/bff6266f-8aaa-43a4-9636-24164d5af76b)
+---------------------------------------------------
 ![Screenshot from 2023-08-05 22-48-22](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/1c6a2898-979a-4796-94f4-1b5ad6a7d8b8)
+-----------------------------------------------------
 ![Screenshot from 2023-08-05 22-48-35](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/ad04da23-0f9a-48c8-8a56-43d234200c1c)
+10. Check Kubernetes Cluster Status:
+- Run the following commands to check the status of different Kubernetes components.
+```
+kubectl get nods
+kubectl get pods
+kubectl get pv
+kubectl get pvc
+kubectl get svc
+```
+![Screenshot from 2023-08-05 22-35-32](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/83be057c-e319-4479-bf92-335cad759bab)
+> [!IMPORTANT]
+> Ensure that you have the necessary permissions and security measures in place for accessing AWS resources and sensitive data.
+> Make sure the bash script and Jenkinsfile are appropriately structured and contain the necessary commands and configurations.
 
