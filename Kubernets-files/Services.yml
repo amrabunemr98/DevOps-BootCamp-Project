@@ -39,7 +39,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  # storageClassName: mysql-storage
+  storageClassName: gp2
   # hostPath:
   #    path: /var/lib/mysql
   # awsElasticBlockStore:
