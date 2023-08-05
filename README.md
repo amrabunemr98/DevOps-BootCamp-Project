@@ -10,4 +10,14 @@
 ## :hammer_and_wrench: Prerequisites:-
 - [x] Github
 - [x] Terraform
+- [x] AWS
+- [x] Docker 
+- [x] Ansible
+- [x] Kubernetes
+- [x] Jenkins
+## :gear: Steps to run project:-
+1. Clone the Repository:
+`
+git clone https://github.com/amrabunemr98/DevOps-BootCamp-Project/tree/main
+`
 
