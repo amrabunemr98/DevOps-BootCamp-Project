@@ -42,9 +42,7 @@ spec:
   storageClassName: mysql-storage
   hostPath:
      path: /var/lib/mysql
-  # awsElasticBlockStore:
-  #   volumeID: "vol-0bf634428885ce79d"
-  #   fsType: ext4
+
 
 ---
 apiVersion: v1
