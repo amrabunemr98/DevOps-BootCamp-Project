@@ -57,4 +57,4 @@ spec:
       storage: 1Gi
   accessModes:
     - ReadWriteOnce
-  storageClassName: aws-ebs-csi-driver
+  storageClassName: "vol-09857c7e137731382"
