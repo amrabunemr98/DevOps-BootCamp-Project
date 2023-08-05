@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: flask-app-config
 data:
-  MYSQL_DATABASE_DB: BucketList
-  MYSQL_DATABASE_USER: root
-  MYSQL_DATABASE_HOST: mysql-service
+  MYSQL_DB: BucketList
+  MYSQL_USER: root
+  MYSQL_HOST: mysql-service
