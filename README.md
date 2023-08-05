@@ -18,6 +18,6 @@
 ## :gear: Steps to run project:-
 1. Clone the Repository:
 ```
-git clone https://github.com/amrabunemr98/DevOps-BootCamp-Project/tree/main
+git clone git@github.com:amrabunemr98/DevOps-BootCamp-Project.git
 ```
-
+2. Run [Bash Script](https://github.com/amrabunemr98/DevOps-BootCamp-Project/blob/main/build.sh) :
