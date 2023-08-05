@@ -25,5 +25,13 @@ git clone git@github.com:amrabunemr98/DevOps-BootCamp-Project.git
 sudo chmod +x build.sh
 ./build.sh
 ```
-3. Copy ECR URL and Update ECR URL of these files [Deployment-app](https://github.com/amrabunemr98/DevOps-BootCamp-Project/blob/main/Kubernets-files/Deployment_flaskapp.yml) [Statefulset-db](https://github.com/amrabunemr98/DevOps-BootCamp-Project/blob/main/Kubernets-files/Statefulset_db.yml) [Jenkinsfile](https://github.com/amrabunemr98/DevOps-BootCamp-Project/blob/main/Jenkinsfile)
+3. Copy ECR URL and Update ECR URL of these files: [Deployment-app](https://github.com/amrabunemr98/DevOps-BootCamp-Project/blob/main/Kubernets-files/Deployment_flaskapp.yml) [Statefulset-db](https://github.com/amrabunemr98/DevOps-BootCamp-Project/blob/main/Kubernets-files/Statefulset_db.yml) [Jenkinsfile](https://github.com/amrabunemr98/DevOps-BootCamp-Project/blob/main/Jenkinsfile)
 ![Screenshot from 2023-08-06 01-37-48](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/235a22f5-45b8-48e5-9762-5a9d8085eee8)
+4. Launch Jenkins Instance to Configure AWS Credentials and Set Up EKS Access:
+```
+sudo chown -R ubuntu:ubuntu /home/ubuntu/.aws
+aws configure
+chmod 600 /home/ubuntu/.aws/credentials
+aws eks --region us-east-1 update-kubeconfig --name Sprints-EKS-Cluster
+```
+![WhatsApp Image 2023-08-06 at 2 06 27 AM](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/8d1dea34-857a-4541-8807-863a164241a3)
