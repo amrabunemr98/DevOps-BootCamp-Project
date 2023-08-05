@@ -82,8 +82,8 @@ def validateLogin():
         cursor = con.cursor()
         cursor.callproc('sp_validateLogin', (_username,))
         data = cursor.fetchall()
-        cursor.close()
-        con.close()
+        # cursor.close()
+        # con.close()
         if len(data) > 0:
             if data[0][3] == _password:
                 session['user'] = data[0][0]
