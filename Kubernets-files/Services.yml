@@ -39,9 +39,9 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: mysql-storage
-  hostPath:
-     path: /var/lib/mysql
+  # storageClassName: mysql-storage
+  # hostPath:
+  #    path: /var/lib/mysql
   # awsElasticBlockStore:
   #   volumeID: "vol-0bf634428885ce79d"
   #   fsType: ext4
@@ -57,4 +57,4 @@ spec:
       storage: 1Gi
   accessModes:
     - ReadWriteOnce
-  storageClassName: mysql-storage
+  #storageClassName: mysql-storage
