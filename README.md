@@ -4,4 +4,5 @@
 
 # :computer: Deploying Applications on Kubernetes using CI/CD Pipeline
 
-## :rocket:Introduction:-
+## :rocket: Introduction:-
+- The objective of this project is implementation of an end-to-end Continuous Integration and Continuous Deployment (CI/CD) pipeline for a web application hosted on a Kubernetes cluster. By leveraging tools like Terraform, Ansible, Docker,Jenkins, and Kubernetes, the project showcases the seamless automation of software development, testing, and deployment processes.
