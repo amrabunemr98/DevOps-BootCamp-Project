@@ -57,4 +57,4 @@ spec:
       storage: 1Gi
   accessModes:
     - ReadWriteOnce
-  #storageClassName: mysql-storage
+  storageClassName: aws-ebs-csi-driver
