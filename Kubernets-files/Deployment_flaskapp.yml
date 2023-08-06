@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: flask-app   # Container name
-          image: 812428914503.dkr.ecr.us-east-1.amazonaws.com/sprints-ecr-repo:build-${BUILD_NUMBER}-app
+          image: "your ecr url":build-${BUILD_NUMBER}-app
           # Container image with build number variable
           ports:
             - containerPort: 5000   # Port the container listens on
