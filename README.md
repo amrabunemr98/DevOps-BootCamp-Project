@@ -46,6 +46,9 @@ aws eks --region us-east-1 update-kubeconfig --name Sprints-EKS-Cluster
 "public_ip_jenkins_instance":8080
 ```
 7. Configure Jenkins Credentials:
+- Create token to use it as a password in Github creddentials.
+![WhatsApp Image 2023-08-06 at 3 49 47 AM](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/4d451a25-36e3-4e7a-b221-3319fdbc44e0)
+------------------------------------------
 - Add GitHub credentials to Jenkins for accessing your repository.
 - Add AWS credentials for interacting with AWS services.
 ![WhatsApp Image 2023-08-06 at 2 30 14 AM](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/fae8e3d0-dedc-4643-8f4a-e2f750b97a05)
