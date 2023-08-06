@@ -1,8 +1,12 @@
+# Define a Kubernetes ConfigMap named 'flask-app-config'
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: flask-app-config
+  name: flask-app-config  # The name of the ConfigMap
+
+# Specify key-value pairs to store in the ConfigMap
 data:
-  MYSQL_DB: BucketList
-  MYSQL_USER: root
-  MYSQL_HOST: mysql-service
+  MYSQL_DB: BucketList    # Key: MYSQL_DB, Value: BucketList
+  MYSQL_USER: root       # Key: MYSQL_USER, Value: root
+  MYSQL_HOST: mysql-service  # Key: MYSQL_HOST, Value: mysql-service
+
