@@ -4,7 +4,7 @@ pipeline {
         // Define paths and tags for Docker images
         docker_file_app = 'MySQL-and-Python/FlaskApp/Dockerfile'
         docker_file_db = 'MySQL-and-Python/MySQL_Queries/Dockerfile'
-        ecr_repository = '812428914503.dkr.ecr.us-east-1.amazonaws.com/sprints-ecr-repo'
+        ecr_repository = 'your ECR URL'
         imageTagApp = "build-${BUILD_NUMBER}-app"
         imageNameapp = "${ecr_repository}:${imageTagApp}"
         imageTagDb = "build-${BUILD_NUMBER}-db"
