@@ -1,58 +1,61 @@
+# Define a Kubernetes Service for the Flask app
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-app-service
+  name: flask-app-service   # The name of the Service
 spec:
   selector:
-    app: flask-app
-  type: LoadBalancer
+    app: flask-app   # Select pods with the label 'app: flask-app'
+  type: LoadBalancer   # Type of service
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 5000
-    
+      port: 80   # Port exposed by the service
+      targetPort: 5000   # Port on the pods the service targets
 
 ---
 
+# Define a Kubernetes Service for MySQL
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql-service
+  name: mysql-service   # The name of the Service
 spec:
   selector:
-    app: mysql
-  type: ClusterIP
+    app: mysql   # Select pods with the label 'app: mysql'
+  type: ClusterIP   # Type of service
   ports:
     - protocol: TCP
-      port: 3306
-      targetPort: 3306
-
+      port: 3306   # Port exposed by the service
+      targetPort: 3306   # Port on the pods the service targets
 
 ---
+
+# Define a PersistentVolume for MySQL data
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: mysql-pv
+  name: mysql-pv   # The name of the PersistentVolume
 spec:
   capacity:
-    storage: 1Gi  
+    storage: 1Gi   # Storage capacity of the volume
   accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: mysql-storage
+    - ReadWriteOnce   # Access mode
+  persistentVolumeReclaimPolicy: Retain   # Reclaim policy
+  storageClassName: mysql-storage   # Storage class name
   hostPath:
-     path: /var/lib/mysql
-
+    path: /var/lib/mysql   # Host path where the volume data is stored
 
 ---
+
+# Define a PersistentVolumeClaim for MySQL data
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mypvc
+  name: mypvc   # The name of the PersistentVolumeClaim
 spec:
   resources:
     requests:
-      storage: 1Gi
+      storage: 1Gi   # Requested storage capacity
   accessModes:
-    - ReadWriteOnce
-  storageClassName: mysql-storage
+    - ReadWriteOnce   # Access mode
+  storageClassName: mysql-storage   # Storage class name
