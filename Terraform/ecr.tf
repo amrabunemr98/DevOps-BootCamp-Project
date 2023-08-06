@@ -1,23 +1,26 @@
+# Define an AWS ECR repository
 resource "aws_ecr_repository" "sprints_ecr" {
-  name                 = "sprints-ecr-repo"
-  image_tag_mutability = "MUTABLE"
+  name                 = "sprints-ecr-repo"   # Name of the ECR repository
+  image_tag_mutability = "MUTABLE"   # Image tag mutability setting
 
   image_scanning_configuration {
-    scan_on_push = true
+    scan_on_push = true   # Enable scanning images on push
   }
 }
 
-
+# Define an IAM policy document for ECR permissions
 data "aws_iam_policy_document" "ecr_policy" {
   statement {
-    sid    = "new policy"
-    effect = "Allow"
+    sid    = "new policy"   # Statement ID
+    effect = "Allow"   # Effect of the statement
 
+    # Specify the principals (identities) that are allowed
     principals {
-      type        = "*"
-      identifiers = ["*"]
+      type        = "*"   # Principal type (anyone)
+      identifiers = ["*"]   # Principal identifiers (anyone)
     }
 
+    # List of allowed actions
     actions = [
       "ecr:GetDownloadUrlForLayer",
       "ecr:BatchGetImage",
@@ -38,36 +41,12 @@ data "aws_iam_policy_document" "ecr_policy" {
   }
 }
 
+# Attach the ECR policy document to the repository
 resource "aws_ecr_repository_policy" "aws_ecr_policy" {
-  repository = aws_ecr_repository.sprints_ecr.name
-  policy = data.aws_iam_policy_document.ecr_policy.json
+  repository = aws_ecr_repository.sprints_ecr.name   # Name of the ECR repository
+  policy     = data.aws_iam_policy_document.ecr_policy.json   # JSON representation of the policy
 }
 
 
 
-# data "aws_caller_identity" "current" {}
 
-# data "aws_region" "current" {}
-
-# data "aws_partition" "current" {}
-
-# resource "aws_ecr_registry_policy" "example" {
-#   policy = jsonencode({
-#     Version = "2012-10-17",
-#     Statement = [
-#       {
-#         Sid    = "testpolicy",
-#         Effect = "Allow",
-#         Principal = {
-#           "AWS" : "arn:${data.aws_partition.current.partition}:iam::${data.aws_caller_identity.current.account_id}:root"
-#         },
-#         Action = [
-#           "ecr:ReplicateImage"
-#         ],
-#         Resource = [
-#           "arn:${data.aws_partition.current.partition}:ecr:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:repository/*"
-#         ]
-#       }
-#     ]
-#   })
-# }
