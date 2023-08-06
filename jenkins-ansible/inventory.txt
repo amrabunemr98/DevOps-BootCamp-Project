@@ -1,1 +1,2 @@
-jenkins ansible_host="52.91.28.16" ansible_user=ubuntu ansible_ssh_private_key_file=/home/abunemr/sprint-project.pem
+jenkins ansible_host="public_ip_jenkins_instance" ansible_user=ubuntu ansible_ssh_private_key_file=/home/abunemr/"your key pair".pem  
+# bash script automatic add public ip of ec2 in inventorty
