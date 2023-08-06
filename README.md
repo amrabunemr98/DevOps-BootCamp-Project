@@ -29,7 +29,7 @@ sudo chmod +x build.sh
 
 ![Screenshot from 2023-08-06 01-37-48](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/235a22f5-45b8-48e5-9762-5a9d8085eee8)
 
-5. Launch Jenkins Instance to Configure AWS Credentials and Set Up EKS Access:
+4. Launch Jenkins Instance to Configure AWS Credentials and Set Up EKS Access:
 ```
 sudo chown -R ubuntu:ubuntu /home/ubuntu/.aws
 aws configure
