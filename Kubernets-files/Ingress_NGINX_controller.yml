@@ -1,18 +1,20 @@
+# Define a Kubernetes Ingress for the Flask app
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: flask-app-ingress
+  name: flask-app-ingress   # The name of the Ingress
   annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx   # Specify the Ingress controller class
+    nginx.ingress.kubernetes.io/rewrite-target: /   # Rewrite the path to root ("/")
 spec:
   rules:
-    - http: 
+    - http:
         paths:
-          - path: /
-            pathType: Prefix
+          - path: /   # Path to match for the Ingress
+            pathType: Prefix   # Type of path matching
             backend:
               service:
-                name: flask-app-service
+                name: flask-app-service   # Name of the backend service
                 port:
-                  number: 80
+                  number: 80   # Port number of the backend service
+
