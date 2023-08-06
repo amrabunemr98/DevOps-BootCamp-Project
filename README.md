@@ -26,8 +26,9 @@ sudo chmod +x build.sh
 ./build.sh
 ```
 3. Copy ECR URL from output of bash script and Update ECR URL of these files: [Deployment-app](https://github.com/amrabunemr98/DevOps-BootCamp-Project/blob/main/Kubernets-files/Deployment_flaskapp.yml) [Statefulset-db](https://github.com/amrabunemr98/DevOps-BootCamp-Project/blob/main/Kubernets-files/Statefulset_db.yml) [Jenkinsfile](https://github.com/amrabunemr98/DevOps-BootCamp-Project/blob/main/Jenkinsfile)
+
 ![Screenshot from 2023-08-06 01-37-48](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/235a22f5-45b8-48e5-9762-5a9d8085eee8)
-4. Launch Jenkins Instance to Configure AWS Credentials and Set Up EKS Access:
+5. Launch Jenkins Instance to Configure AWS Credentials and Set Up EKS Access:
 ```
 sudo chown -R ubuntu:ubuntu /home/ubuntu/.aws
 aws configure
@@ -53,8 +54,10 @@ aws eks --region us-east-1 update-kubeconfig --name Sprints-EKS-Cluster
 ![Screenshot from 2023-08-05 20-16-08](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/f6c393aa-ddf2-465a-a170-4ef360e835c5)
 ------------------------------------
 ![Screenshot from 2023-08-05 20-11-08](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/2160f0fb-c18e-4938-bea9-72b5da11845b)
+--------------------------------------------------------
 - Create a pipeline in Jenkins using a Jenkinsfile.
 ![Screenshot from 2023-08-06 02-37-38](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/84548a7d-f090-48d8-8eb4-f540cad11a60)
+----------------------------------------------
 9. Access Web Application:
 - After the pipeline completes, find the DNS of the web server from the pipeline outputs.
 ![Screenshot from 2023-08-05 23-10-53](https://github.com/amrabunemr98/DevOps-BootCamp-Project/assets/128842547/1b183134-ff5f-414b-89cd-d94865fa4e98)
@@ -80,3 +83,14 @@ kubectl get svc
 > Ensure that you have the necessary permissions and security measures in place for accessing AWS resources and sensitive data.
 > Make sure the bash script and Jenkinsfile are appropriately structured and contain the necessary commands and configurations.
 
+## :tada: Conclusion:-
+- Through a series of carefully orchestrated steps, I've built a fully automated CI/CD pipeline for a web application, leveraging an array of powerful tools and technologies. Throughout this project, I've gained practical experience in provisioning infrastructure with Terraform, configuring services using Ansible, containerizing applications with Docker, orchestrating deployments on Kubernetes, and automating workflows with Jenkins. By seamlessly integrating these tools, so i have demonstrated a mastery of essential DevOps practices that empower efficient and reliable software delivery.
+
+## :open_book: Additional Resources and References
+- Throughout of this project, I found the following resources to be immensely helpful:
+1. Terraform Documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+2. Ansible Documentation: https://docs.ansible.com/ansible/latest/index.html
+3. Kubernetes Documentation: https://kubernetes.io/docs/home/
+
+> [!NOTE]
+> Remember that these steps provide a high-level overview of the process. You'll need to fill in the specific commands and configurations for each step based on your project's requirements and your environment. Test each step thoroughly and make adjustments as needed to ensure a smooth and successful deployment process.
