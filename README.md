@@ -90,7 +90,7 @@ kubectl get svc
 ## :tada: Conclusion:-
 - Through a series of carefully orchestrated steps, I've built a fully automated CI/CD pipeline for a web application, leveraging an array of powerful tools and technologies. Throughout this project, I've gained practical experience in provisioning infrastructure with Terraform, configuring services using Ansible, containerizing applications with Docker, orchestrating deployments on Kubernetes, and automating workflows with Jenkins. By seamlessly integrating these tools, so i have demonstrated a mastery of essential DevOps practices that empower efficient and reliable software delivery.
 
-## :open_book: Additional Resources and References
+## :open_book: Additional Resources and References:-
 - Throughout of this project, I found the following resources to be immensely helpful:
 1. Terraform Documentation: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 2. Ansible Documentation: https://docs.ansible.com/ansible/latest/index.html
