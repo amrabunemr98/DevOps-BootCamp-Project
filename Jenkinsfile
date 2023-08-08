@@ -52,7 +52,7 @@ pipeline {
             }
         }
 
-            stage('Apply Kubernetes files') {
+        stage('Apply Kubernetes files') {
             steps{
                 withCredentials([usernamePassword(credentialsId: 'aws_cred', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     // Replace the placeholder with the actual Docker image in the Kubernetes YAML files
@@ -73,7 +73,7 @@ pipeline {
                 
                 }
              }
-                stage('Retrieve DNS') {
+        stage('Retrieve DNS') {
             steps {
                 script {
                     // Retrieve the DNS from Kubernetes Service using kubectl
